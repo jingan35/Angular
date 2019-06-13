@@ -1,0 +1,27 @@
+<mat-card *ngIf="recipe" class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{recipe.name}}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [src]="recipe.picture" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <ng-container *ngIf="expand">
+    <ul>
+      <li *ngFor="let ingredient of recipe.ingredients">
+          {{ingredient.ingredient.name}} {{ingredient.quantity}} {{ingredient.unit}}
+      </li>
+    </ul>
+  </ng-container>
+  </mat-card-content>
+  <mat-card-actions>
+      <button (click)="toggleExpand()">
+          <ng-container *ngIf="!expand">
+          See more
+        </ng-container>
+        <ng-container *ngIf="expand">
+            See less
+          </ng-container>
+      </button>
+    <button (click)="details()" mat-button>Details</button>
+    <button (click)="delete()" mat-button>Delete</button>
+  </mat-card-actions>
+</mat-card>

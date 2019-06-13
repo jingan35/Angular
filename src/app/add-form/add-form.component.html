@@ -1,0 +1,19 @@
+
+  <div class="container">
+      <form (ngSubmit)="submit()" [formGroup]="recipeGroup">
+      <h1>Recipe Form</h1>
+        <mat-form-field >
+          <input matInput id="name" placeholder="name" formControlName="name" required>
+        </mat-form-field>
+
+        <mat-form-field >
+          <input matInput  id="picture" placeholder="picture" formControlName="picture">
+        </mat-form-field>
+
+        <mat-form-field >
+          <input matInput placeholder="description"  id="description" formControlName="description">
+        </mat-form-field>
+
+        <button type="submit" [disabled]="recipeGroup.invalid" >Submit</button>
+      </form>
+  </div>
